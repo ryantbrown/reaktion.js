@@ -47,11 +47,9 @@ Create the HTML markup for the navigation menu:
 And last but not least call the plugin:
 
 ```html
-<script>
 $(function(){ 
 	$('.nav').reaktion(); 
 });
-</script>
 ```
 
 
@@ -81,14 +79,13 @@ There are several ways to customize Reaktion JS for you needs, the two most comm
 Below is an example using these options in the plugin call:
 
 ```html
-<script>
 $(function(){ 
 	$('.nav').reaktion({
 		breakPoint: 768,
 	    navIcon: '<i class="fa fa-bars"></i>',
 	    arrows: true,
 	    arrowIcon: '<i class="fa fa-chevron-down"></i>',
-	    arrowsToggleOnly: false,
+	    arrowsToggleOnly: true,
 	    animate: true,
 	    effect: 'slide',
 	    speed: 300,
@@ -97,19 +94,17 @@ $(function(){
 	    subNavSpeed: 300
 	});
 });
-</script>
 ```
 
 ### CSS
 
-Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.  For more details on how to style Reaktion JS for your needs please visit the [documentation](http://reaktionjs.com/docs).
+Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.  For more details on how to style Reaktion JS for your needs please see the [documentation](http://reaktionjs.com/docs).
 
 ### API
 
 Reaktion JS contains API methods for opening and closing the menu after initialzation:
 
 ```html
-<script>
 // Dom ready
 $(function(){ 
 	// Initialize
@@ -121,7 +116,6 @@ $(function(){
 	// toggle the mobile menu
 	$('.nav').reaktion('toggle');
 });	 
-</script>
 ```
 
 ## License
