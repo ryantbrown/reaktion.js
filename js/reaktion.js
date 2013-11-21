@@ -4,7 +4,7 @@
  * URL: http://reaktionjs.com
  * Description: A lightweight responsive navigation plugin
  * Author: Ryan Brown (http://weareloring.com)
- * Copyright: Copyright 2013 Loring, Inc.
+ * Copyright: © 2013 Loring, Inc.
  * License: MIT
  */
 
