@@ -63,7 +63,7 @@ There are 2 ways to customize Reaktion JS, one is through plugin options and the
 
 
 | Option | Default | Type | Description |
-| -------|:-------:| :---:|------------:|
+| -------| --------| -----| ------------|
 | breakPoint | `768` | int | Refers to the viewport width and determines when the navigation changes to the "mobile" form.|
 | navIcon | `<i class="fa fa-bars"></i>` | string | The HTML (or text) that represents the mobile icon. The mobile is icon is what gets clicked to reveal the menu |
 | arrows | `true` | bool | Whether or not to include the arrows for the sub menus. If `false` the arrows will not be visible. If you want to only include the arrows on the "mobile" version of the menu then you can use CSS to hide them for the default menu. |
