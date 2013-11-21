@@ -1,17 +1,17 @@
 Reaktion JS
 ========
 
-Reaktion JS is a simple, lightweight but flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable through CSS and plugin options. For more information including documentation and integration examples please visit the [Reaktion JS website](http://reaktionjs.com)
+Reaktion JS is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable. By default it uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) instead of images and contains a LESS file with variables for easy customization. For more information including documentation and integration examples please visit the [Reaktion JS website](http://reaktionjs.com)
 
 Demo
 ------
 
-You can view several different demo's on the Reaktion JS [Project Website](http://reaktionjs.com/demos)
+You can view the different demo's on the [Reaktion JS website](http://reaktionjs.com/demos)
 
 Usage
 ------
 
-Add the css file to the `<head>` of your document (Font Awesome is optional but recommended):
+Add the css file to the `<head>` of your document (Font Awesome is optional but recommended, please see the [customization](#customization) section for details):
 
 ```html
 <link rel="stylesheet" href="/css/reaktion.css" />
@@ -25,7 +25,7 @@ Add jQuery and Reaktion JS at the bottom of your document before the end `</body
 <script src="reaktion.min.js"></script>
 ```
 
-Create the navigation menu markup:
+Create the HTML markup for the navigation menu:
 
 ```html
 <div class="nav">
@@ -44,7 +44,7 @@ Create the navigation menu markup:
 </div>
 ```
 
-And finally call the plugin:
+And last but not least call the plugin:
 
 ```html
 <script>
@@ -54,19 +54,31 @@ $(function(){
 </script>
 ```
 
+
+
+
 Customization
 ------
 
-There are a few different ways to customize Reaktion JS, the two most common are via plugin options and CSS:
+There are several ways to customize Reaktion JS for you needs, the two most common are via plugin options and CSS:
 
 ### Options
 
 | Option | Default | Type | Description |
 | -------| --------| -----| ------------|
-| breakPoint | `768` | int | Refers to the viewport width and determines when the navigation changes to the "mobile" form.|
-| navIcon | `<i class="fa fa-bars"></i>` | string | The HTML (or text) that represents the mobile icon. The mobile is icon is what gets clicked to reveal the menu. |
-| arrows | `true` | bool | Whether or not to include the arrows for the sub menus. If `false` the arrows will not be visible. If you want to only include the arrows on the "mobile" version of the menu then you can use CSS to hide them for the default menu. |
+| breakPoint | `768` | int | Refers to the viewport width and determines when the navigation switches to the "mobile" version.|
+| navIcon | `<i class="fa fa-bars"></i>` | string | The HTML (text, icon, image, etc.) for the mobile icon (the mobile icon is what the user clicks to reveal the mobile menu. |
+| arrows | `true` | bool | Whether or not to show the sub menu arrows. To include the arrows on the "mobile" version only you can use CSS to hide them (ie: `.nav ul li span.arrow { display:none; }`) |
+| arrowIcon | `<i class="fa fa-chevron-down"></i>` | string | The HTML (text, icon, image, etc.) for the sub menu arrows.|
+| arrowsToggleOnly | `true` | bool | If `true`, the arrows are the only element that will toggle the sub menus, if `false` the parent link of the sub menu will also toggle sub menus. Does not apply if arrows are disabled.
+| animate | `true` | bool | Whether or not to animate the mobile menu on reveal |
+| effect | `slide` | string | The effect used to animate the mobile menu, can be either `slide` or `fade` |
+| speed | `300` | int | The speed at which to animate the mobile menu |
+| animateSubNav | `true` | bool | Whether or not to animate when opening the sub menus |
+| subNavEffect | `slide` | string | The effect used to animate the sub menus, can be either `slide` or `fade` |
+| subNavSpeed | `300` | int | The speed at which to animate the sub menus |
 
+Below is an example of using these options in the plugin call:
 
 ```html
 <script>
@@ -76,7 +88,7 @@ $(function(){
 	    navIcon: '<i class="fa fa-bars"></i>',
 	    arrows: true,
 	    arrowIcon: '<i class="fa fa-chevron-down"></i>',
-	    arrowsToggleOnly: true,
+	    arrowsToggleOnly: false,
 	    animate: true,
 	    effect: 'slide',
 	    speed: 300,
@@ -88,8 +100,33 @@ $(function(){
 </script>
 ```
 
-
 ### CSS
+
+Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.  For more details on how to style Reaktion JS for your needs please visit the [documentation](http://reaktionjs.com/docs).
+
+### API
+
+Reaktion JS contains API methods for opening and closing the menu after initialzation:
+
+```html
+<script>
+// Dom ready
+$(function(){ 
+	// Initialize
+	$('.nav').reaktion();
+	// open the mobile menu
+	$('.nav').reaktion('open'); 
+	// close the mobile menu
+	$('.nav').reaktion('close'); 
+	// toggle the mobile menu
+	$('.nav').reaktion('toggle');
+});	 
+</script>
+```
+
+## License
+
+Reaktion JS is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 
 
