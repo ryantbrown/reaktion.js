@@ -21,6 +21,8 @@ Add jQuery and Reaktion JS at the bottom of your document before the end `</body
 ```
 
 Create the navigation menu markup
+
+```html
 <div class="nav">
 	<ul>
 		<li><a href="#">Menu Item</a></li>
@@ -35,7 +37,7 @@ Create the navigation menu markup
 		...
 	</ul>
 </div>
-```html
+```
 
 And finally call Reaktion JS
 
