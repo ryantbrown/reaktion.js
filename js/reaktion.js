@@ -11,7 +11,7 @@
 ;(function($, document, window, undefined) {
 
     var defaults = {
-        breakPoint: 700,
+        breakPoint: 768,
         navIcon: '<i class="fa fa-bars"></i>',
         arrows: true,
         arrowIcon: '<i class="fa fa-chevron-down"></i>',

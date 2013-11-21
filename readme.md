@@ -14,7 +14,7 @@ Add the css file to the head of your document (Font Awesome is optional but reco
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" >
 ```
 
-Add jQuery and Reaktion JS at the bottom of your document before the end `</body` tag:
+Add jQuery and Reaktion JS at the bottom of your document before the end `</body>` tag:
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
