@@ -68,11 +68,11 @@ There are a few different ways to customize Reaktion JS, the two most common are
 | arrows | `true` | bool | Whether or not to include the arrows for the sub menus. If `false` the arrows will not be visible. If you want to only include the arrows on the "mobile" version of the menu then you can use CSS to hide them for the default menu. |
 
 
-```javascript
+```html
 <script>
 $(function(){ 
 	$('.nav').reaktion({
-		breakPoint: 768, // Refers to the viewport width
+		breakPoint: 768,
 	    navIcon: '<i class="fa fa-bars"></i>',
 	    arrows: true,
 	    arrowIcon: '<i class="fa fa-chevron-down"></i>',
