@@ -78,7 +78,7 @@ There are several ways to customize Reaktion JS for you needs, the two most comm
 | subNavEffect | `slide` | string | The effect used to animate the sub menus, can be either `slide` or `fade` |
 | subNavSpeed | `300` | int | The speed at which to animate the sub menus |
 
-Below is an example of using these options in the plugin call:
+Below is an example using these options in the plugin call:
 
 ```html
 <script>
