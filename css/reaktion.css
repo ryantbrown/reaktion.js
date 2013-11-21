@@ -20,7 +20,7 @@
 }
 .nav ul li span.arrow {
   display: block;
-  /* use "display:none" to hide arrows for the non-mobile nav */
+  /* "display:none" to hide arrows for the non-mobile nav */
   position: absolute;
   top: 32px;
   color: #ffffff;
