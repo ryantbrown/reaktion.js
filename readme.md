@@ -46,7 +46,7 @@ Create the HTML markup for the navigation menu:
 
 And last but not least call the plugin:
 
-```html
+```javascript
 $(function(){ 
 	$('.nav').reaktion(); 
 });
@@ -78,7 +78,7 @@ There are several ways to customize Reaktion JS for you needs, the two most comm
 
 Below is an example using these options in the plugin call:
 
-```html
+```javascript
 $(function(){ 
 	$('.nav').reaktion({
 		breakPoint: 768,
@@ -104,7 +104,7 @@ Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic s
 
 Reaktion JS contains API methods for opening and closing the menu after initialzation:
 
-```html
+```javascript
 // Dom ready
 $(function(){ 
 	// Initialize
