@@ -77,12 +77,15 @@
 }
 .nav .nav-bars {
   display: none;
-  cursor: pointer;
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 24px;
   color: #464646;
+  font-size: 24px;
+  cursor: pointer;
+}
+.nav .nav-bars i {
+  font-weight: bold;
 }
 .nav.mobile {
   width: 100%;
