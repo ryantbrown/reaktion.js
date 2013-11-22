@@ -64,17 +64,19 @@ There are several ways to customize Reaktion JS for you needs, the two most comm
 
 | Option | Default | Type | Description |
 | -------| --------| -----| ------------|
-| breakPoint | `768` | int | Refers to the viewport width and determines when the navigation switches to the "mobile" version.|
+| breakPoint | `768` | number | Refers to the viewport width and determines when the navigation switches to the "mobile" version.|
 | navIcon | `<i class="fa fa-bars"></i>` | string | The HTML (text, icon, image, etc.) for the mobile icon (the mobile icon is what the user clicks to reveal the mobile menu. |
 | arrows | `true` | bool | Whether or not to show the sub menu arrows. To include the arrows on the "mobile" version only you can use CSS to hide them (ie: `.nav ul li span.arrow { display:none; }`) |
 | arrowIcon | `<i class="fa fa-chevron-down"></i>` | string | The HTML (text, icon, image, etc.) for the sub menu arrows.|
 | arrowsToggleOnly | `true` | bool | If `true`, the arrows are the only element that will toggle the sub menus, if `false` the parent link of the sub menu will also toggle sub menus. Does not apply if arrows are disabled.
 | animate | `true` | bool | Whether or not to animate the mobile menu on reveal |
 | effect | `slide` | string | The effect used to animate the mobile menu, can be either `slide` or `fade` |
-| speed | `300` | int | The speed at which to animate the mobile menu |
+| speed | `300` | number | The speed at which to animate the mobile menu |
 | animateSubNav | `true` | bool | Whether or not to animate when opening the sub menus |
 | subNavEffect | `slide` | string | The effect used to animate the sub menus, can be either `slide` or `fade` |
-| subNavSpeed | `300` | int | The speed at which to animate the sub menus |
+| subNavSpeed | `300` | number | The speed at which to animate the sub menus |
+| onOpen | empty | function | Callback function executed whenever the menu is opened |
+| onClose | empty | function | Callback function executed whenever the menu is closed |
 
 Below is an example using these options in the plugin call:
 
