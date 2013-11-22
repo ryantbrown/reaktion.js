@@ -100,11 +100,11 @@ $(function(){
 
 Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.  For more details on how to style Reaktion JS for your needs please see the [documentation](http://reaktionjs.com/docs).
 
-##### LESS
+#### LESS
 
 The CSS file for Reaktion JS is compiled directly from the LESS file in (`less/reaktion.less`).  If you are familar with LESS then I recommend you use this file to style the plugin.  It sets 
 
-##### Font Awesome
+#### Font Awesome
 
 Reaktion JS uses Font Awesome to generate the arrows and the menu icon.
 
