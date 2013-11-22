@@ -10,7 +10,7 @@
 
 ;(function($, document, window, undefined) {
 
-    var defaults = {
+    var reaktion, nav, menu, defaults = {
         breakPoint: 768,
         navIcon: '<i class="fa fa-bars"></i>',
         arrows: true,
@@ -21,7 +21,9 @@
         speed: 300,
         animateSubNav: true,
         subNavEffect: 'slide',
-        subNavSpeed: 300
+        subNavSpeed: 300,
+        onOpen: function(){},
+        onClose: function(){}
     };
 
     function Plugin(element, options) {
@@ -36,29 +38,29 @@
 
         _init: function() {
 
-            var target = $(this.element),
-                reaktion = this,
-                nav = $(this.element).find('ul:first');
+            nav = $(this.element);
+            reaktion = this;
+            menu = $(this.element).find('ul:first');
  
-            target.append('<div class="nav-bars">'+this.options.navIcon+'</div>');            
+            nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');            
 
             $('.nav-bars').click(function() {
-                nav.is(':visible') ? reaktion.close() : reaktion.open();
+                menu.is(':visible') ? reaktion.close() : reaktion.open();
             });
 
             if(this.options.arrows) {
-                target.find('ul > li').not('ul > li > ul li').has('ul')
+                nav.find('ul > li').not('ul > li > ul li').has('ul')
                       .prepend('<span class="arrow">'+this.options.arrowIcon+'</span>');
-                nav.on('click', 'span.arrow', function() {
+                menu.on('click', 'span.arrow', function() {
                     reaktion._toggleSubNav($(this));
                 });
             } else {
-                target.find('ul > li').not('ul > li > ul li').has('ul')
+                nav.find('ul > li').not('ul > li > ul li').has('ul')
                       .prepend('<span class="arrow" style="padding:0;"></span>');
             }
 
             if(!this.options.arrows || !this.options.arrowsToggleOnly) {
-                target.find('ul > li').not('ul > li > ul li').has('ul').find('a').on('click', function(){
+                nav.find('ul > li').not('ul > li > ul li').has('ul').find('a').on('click', function(){
                     reaktion._toggleSubNav($(this));
                 });
             }
@@ -68,11 +70,10 @@
             $(window).resize(function(){
                 reaktion._resize();
             });
+
         },
 
         _resize: function() {
-            var nav = $(this.element);
-
             if($(window).width() > this.options.breakPoint) {
                 nav.removeClass('mobile');
                 nav.find('ul:first').show().find('.arrow').removeClass('arrow-rotate')
@@ -96,36 +97,12 @@
             }
         },
 
-        open: function() {
-            var nav = $(this.element).find('ul:first');
-
-            if(this.options.animate) {
-                this.options.effect == 'slide' ?
-                    nav.slideDown(this.options.speed) :
-                    nav.fadeIn(this.options.speed);
-            } else {
-                nav.show();
-            }
-        },
-
-        close: function() {
-            var nav = $(this.element).find('ul:first');
-
-            if(this.options.animate) {
-               this.options.effect == 'slide' ?
-                    nav.slideUp(this.options.speed) :
-                    nav.fadeOut(this.options.speed);
-            } else {
-                nav.hide();
-            }
-        },
-
         _toggleSubNav: function(arrow) {
             if($('.nav-bars').is(':visible')) {
                 if(this.options.animateSubNav) {
                     this.options.subNavEffect == 'slide' ?
                         arrow.siblings('ul').slideToggle(this.options.subNavSpeed) :
-                        arrow.siblings('ul').fadeToggle(this.options.subNavSpeed);
+                        arrow.siblings('ul').fadeToggle(this.options.subNavSpeed);             
                 } else {
                     arrow.siblings('ul').toggle();
                 }
@@ -133,22 +110,74 @@
                     arrow.toggleClass('arrow-rotate');
                 }                
             }
+        },
+
+        open: function() {
+            if(!menu.is(':visible')) {
+                if(this.options.animate) {
+                    this.options.effect == 'slide' ?
+                        menu.slideDown(this.options.speed, function(){
+                            if(typeof reaktion.options.onOpen === 'function'){
+                                reaktion.options.onOpen.call(this);
+                            }                            
+                        }) :
+                        menu.fadeIn(this.options.speed, function(){
+                           if(typeof reaktion.options.onOpen === 'function'){
+                                reaktion.options.onOpen.call(this);
+                            }
+                        });
+                } else {
+                    menu.show(function(){
+                        if(typeof reaktion.options.onOpen === 'function'){
+                            reaktion.options.onOpen.call(this);
+                        }
+                    });
+                }               
+            }
+        },
+
+        close: function() {
+            if(menu.is(':visible')) {
+                if(this.options.animate) {
+                   this.options.effect == 'slide' ?
+                        menu.slideUp(this.options.speed, function(){
+                            if(typeof reaktion.options.onClose === 'function'){
+                                reaktion.options.onClose.call(this);
+                            } 
+                        }) :
+                        menu.fadeOut(this.options.speed, function(){
+                            if(typeof reaktion.options.onClose === 'function'){
+                                reaktion.options.onClose.call(this);
+                            }
+                        });
+                } else {
+                    menu.hide(function(){
+                        if(typeof reaktion.options.onClose === 'function'){
+                            reaktion.options.onClose.call(this);
+                        }
+                    });
+                }
+            }
+        },
+
+        toggle: function(){
+            menu.is(':visible') ? this.close() : this.open();
         }
+        
     };
 
     $.fn['reaktion'] = function(args) {
-        if(!$.data(this, 'reaktion')) {
-            $.data(this, 'reaktion', new Plugin(this, args));
+        if (!$(this).length) {
+            return $(this);
         }
+        var instance = $(this).data('reaktion');
 
-        var instance = $.data(this, 'reaktion');
-
-        if(typeof args === 'undefined' || typeof args === 'object') {
-            if (typeof instance['init'] === 'function') {
-                instance.init(args);
-            }
-        } else if(typeof args === 'string' && args.indexOf('_') != 0 && typeof instance[args] === 'function') {
+        if(instance && instance[args]  && args.indexOf('_') != 0 && typeof instance[args] === 'function') {  
             return instance[args].apply(instance, Array.prototype.slice.call(arguments, 1));
+        } else if(typeof args === 'object' || !args) {
+            instance = new Plugin($(this), args);
+            $(this).data('reaktion', instance);
+            return this;            
         } else if(args.indexOf('_') == 0) {
             $.error('The ' + args + ' method is private and cannot be called publicly');
         } else {
