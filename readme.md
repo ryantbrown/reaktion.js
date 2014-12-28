@@ -8,21 +8,29 @@ Demo
 
 You can view a demo here: [http://ryantbrown.io/code/reaktionjs](http://ryantbrown.io/code/reaktionjs)
 
+
+
 Usage
 ------
 
-Add the css file to the `<head>` of your document (Font Awesome is optional but recommended, please see the [customization](#customization) section for details):
+There are 3 ways to install Reaktion.js:
+
+* Install the package via Bower with ```bower install reaktion.js```
+* Clone the repo with ```git clone https://github.com/ryantbrown/reaktion.js.git reaktion```
+* Download the zip file [here](https://github.com/ryantbrown/reaktion.js/archive/master.zip)
+
+Once you have it installed then you need to add the css file to the `<head>` of your document (Font Awesome is optional but recommended, please see the [customization](#customization) section for details):
 
 ```html
-<link rel="stylesheet" href="/css/reaktion.css" />
+<link rel="stylesheet" href="dist/reaktion.min.css" />
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" >
 ```
 
-Add jQuery and Reaktion JS at the bottom of your document before the end `</body>` tag:
+Add jQuery and Reaktion JS at the bottom of your document right before the end `</body>` tag:
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="reaktion.min.js"></script>
+<script src="dist/reaktion.min.js"></script>
 ```
 
 Create the HTML markup for the navigation menu:
