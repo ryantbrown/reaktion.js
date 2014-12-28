@@ -26,7 +26,7 @@ Once you have it installed then you need to add the css file to the `<head>` of 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" >
 ```
 
-Add jQuery and Reaktion JS at the bottom of your document right before the end `</body>` tag:
+Add jQuery and Reaktion.js at the bottom of your document right before the end `</body>` tag:
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -57,7 +57,7 @@ And last but not least call the plugin:
 ```javascript
 // Dom ready
 $(function(){
-	// Initialize Reaktion JS
+	// Initialize Reaktion.js
 	$('.nav').reaktion();
 });
 ```
@@ -66,7 +66,7 @@ $(function(){
 Customization
 ------
 
-There are several ways to customize Reaktion JS for you needs, the two most common are via plugin options and CSS:
+There are several ways to customize Reaktion.js for you needs, the two most common are via plugin options and CSS:
 
 ### Options
 
@@ -108,14 +108,14 @@ $(function(){
 
 ### CSS
 
-Reaktion JS comes with a CSS file (`src/css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`src/less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.
+Reaktion.js comes with a CSS file (`src/css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`src/less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.
 #### LESS
 
-The CSS file for Reaktion JS is compiled directly from the LESS file in (`src/less/reaktion.less`).  If you are familar with LESS then I recommend you use this file to style the plugin.  It sets
+The CSS file for Reaktion.js is compiled directly from the LESS file in (`src/less/reaktion.less`).  If you are familar with LESS then I recommend you use this file to style the plugin.  It sets
 
 #### Font Awesome
 
-Reaktion JS uses Font Awesome to generate the arrows and the menu icon.
+Reaktion.js uses Font Awesome to generate the arrows and the menu icon.
 
 ### API
 
@@ -137,7 +137,7 @@ $(function(){
 
 ## License
 
-Reaktion JS is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Reaktion.js is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 
 
