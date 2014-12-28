@@ -1,0 +1,24 @@
+{
+  "name": "Reaktion.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ryantbrown/reaktion.js",
+  "authors": [
+    "Ryan Brown <me@ryantbrown.io>"
+  ],
+  "description": "Reaktion JS is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus.",
+  "main": ["./reaktion.min.js","./reaktion.js"],
+  "keywords": [
+    "jQuery",
+    "responsive",
+    "navigation",
+    "menu",
+    "nested"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".gitignore"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  }
+}

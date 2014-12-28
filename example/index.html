@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <title>Reaktion JS: Responsive Navigation Menu : jQuery Plugin</title>
+	    <meta name="viewport" content="user-scalable=0,width=device-width,initial-scale=1,maximum-scale=1" />
+	    <meta name="keywords" content="jQuery, Responsive, Navigation, Nav, Menu, Simple, Lightweight, Small, CSS, JS, JavaScript, HTML5">
+	    <meta name="description" content="Reaktion JS is a simple, lightweight jQuery plugin for generating responsive navigation menus. It allows developers to get up and running with very little effort and is completely customizable through CSS and the plugin options.">
+		
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" >
+	    <link rel="stylesheet" href="css/reaktion.css" />
+	</head>
+	<body>
+		<!-- Reaktion Markup -->
+		<div class="nav">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Work</a>
+					<ul>
+						<li><a href="#">Recent Work</a></li>
+						<li><a href="#">Case Studies</a></li>
+						<li><a href="#">Archives</a></li>
+					</ul>
+				</li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a>				
+					<ul>
+						<li><a href="#">Web Design</a></li>
+						<li><a href="#">Web Development</a></li>
+						<li><a href="#">eCommerce</a></li>
+						<li><a href="#">Graphic Design</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+
+		<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<!-- Reaktion JS -->
+		<script src="js/reaktion.js"></script>
+		<script>
+		$(function(){
+			$('.nav').reaktion();
+		});
+		</script>
+	</body>
+</html>
