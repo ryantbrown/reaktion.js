@@ -1,12 +1,12 @@
 Reaktion JS
 ========
 
-Reaktion JS is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable. By default it uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) instead of images and contains a LESS file with variables for easy customization. For more information including documentation and integration examples please visit the [Reaktion JS website](http://reaktionjs.com)
+Reaktion JS is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable. By default it uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) instead of images and contains a LESS file with variables for easy customization.
 
 Demo
 ------
 
-You can view the different demo's on the [Reaktion JS website](http://reaktionjs.com/demos)
+You can view a demo here: [http://ryantbrown.io/code/reaktionjs](http://ryantbrown.io/code/reaktionjs)
 
 Usage
 ------
@@ -48,7 +48,7 @@ And last but not least call the plugin:
 
 ```javascript
 // Dom ready
-$(function(){ 
+$(function(){
 	// Initialize Reaktion JS
 	$('.nav').reaktion();
 });
@@ -81,7 +81,7 @@ There are several ways to customize Reaktion JS for you needs, the two most comm
 Below is an example using these options in the plugin call:
 
 ```javascript
-$(function(){ 
+$(function(){
 	$('.nav').reaktion({
 		breakPoint: 768,
 	    navIcon: '<i class="fa fa-bars"></i>',
@@ -100,11 +100,10 @@ $(function(){
 
 ### CSS
 
-Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.  For more details on how to style Reaktion JS for your needs please see the [documentation](http://reaktionjs.com/docs).
-
+Reaktion JS comes with a CSS file (`css/reaktion.css`) that contains the basic styling for the menu. This file is compiled from the LESS file (`less/reaktion.less`) that is also included. You are free to use either one but the LESS file contains a few varibales that make it easier to customize quickly.
 #### LESS
 
-The CSS file for Reaktion JS is compiled directly from the LESS file in (`less/reaktion.less`).  If you are familar with LESS then I recommend you use this file to style the plugin.  It sets 
+The CSS file for Reaktion JS is compiled directly from the LESS file in (`less/reaktion.less`).  If you are familar with LESS then I recommend you use this file to style the plugin.  It sets
 
 #### Font Awesome
 
@@ -116,16 +115,16 @@ There are three API methods for opening and closing the menu after initialzation
 
 ```javascript
 // Dom ready
-$(function(){ 
+$(function(){
 	// Initialize
 	$('.nav').reaktion();
 	// open the mobile menu
-	$('.nav').reaktion('open'); 
+	$('.nav').reaktion('open');
 	// close the mobile menu
-	$('.nav').reaktion('close'); 
+	$('.nav').reaktion('close');
 	// toggle the mobile menu
 	$('.nav').reaktion('toggle');
-});	 
+});
 ```
 
 ## License
