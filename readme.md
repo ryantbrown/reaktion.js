@@ -1,7 +1,7 @@
-Reaktion JS
+Reaktion.js
 ========
 
-Reaktion JS is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable. By default it uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) instead of images and contains a LESS file with variables for easy customization.
+Reaktion.js is a lightweight, flexible jQuery plugin for generating responsive, nested navigation menus. It allows developers to get up and running extremely quickly and is completely customizable. By default it uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) instead of images and contains a LESS file with variables for easy customization.
 
 Demo
 ------
