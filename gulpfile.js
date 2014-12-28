@@ -10,6 +10,7 @@ gulp.task('css', function () {
         .pipe(less())
         .pipe(prefix())
         .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./src/css'))
         .pipe(minify())
         .pipe(rename('reaktion.min.css'))
         .pipe(gulp.dest('./dist/css'));

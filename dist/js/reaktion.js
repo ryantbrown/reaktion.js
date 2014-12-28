@@ -1,10 +1,10 @@
 /**
- * Reaktion JS
+ * Reaktion.js
  * Version: 1.0
- * URL: http://reaktionjs.com
- * Description: A lightweight responsive navigation plugin
- * Author: Ryan Brown (http://weareloring.com)
- * Copyright: © 2013 Loring, Inc.
+ * URL: https://github.com/ryantbrown/reaktion.js
+ * Description: A lightweight responsive, nested navigation plugin for jQuery
+ * Author: Ryan Brown (http://me@ryantbrown.io) (http://ryantbrown.io)
+ * Demo URL: http://ryantbrown.io/code/reaktionjs
  * License: MIT
  */
 
@@ -26,7 +26,7 @@
         onClose: function(){}
     };
 
-    function Plugin(element, options) {
+    function Reaktion(element, options) {
         this.element = element;
         this.options = $.extend({}, defaults, options);
         this._defaults = defaults;
@@ -34,15 +34,15 @@
         this._init();
     }
 
-    Plugin.prototype = {
+    Reaktion.prototype = {
 
         _init: function() {
 
             nav = $(this.element);
             reaktion = this;
             menu = $(this.element).find('ul:first');
- 
-            nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');            
+
+            nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');
 
             $('.nav-bars').click(function() {
                 menu.is(':visible') ? reaktion.close() : reaktion.open();
@@ -93,7 +93,7 @@
                 if(!$(this.element).hasClass('mobile')) {
                     $(this.element).addClass('mobile');
                 }
-                $(this.element).unbind('mouseenter mouseleave');      
+                $(this.element).unbind('mouseenter mouseleave');
             }
         },
 
@@ -102,13 +102,13 @@
                 if(this.options.animateSubNav) {
                     this.options.subNavEffect == 'slide' ?
                         arrow.siblings('ul').slideToggle(this.options.subNavSpeed) :
-                        arrow.siblings('ul').fadeToggle(this.options.subNavSpeed);             
+                        arrow.siblings('ul').fadeToggle(this.options.subNavSpeed);
                 } else {
                     arrow.siblings('ul').toggle();
                 }
                 if(this.options.arrows) {
                     arrow.toggleClass('arrow-rotate');
-                }                
+                }
             }
         },
 
@@ -119,7 +119,7 @@
                         menu.slideDown(this.options.speed, function(){
                             if(typeof reaktion.options.onOpen === 'function'){
                                 reaktion.options.onOpen.call(this);
-                            }                            
+                            }
                         }) :
                         menu.fadeIn(this.options.speed, function(){
                            if(typeof reaktion.options.onOpen === 'function'){
@@ -132,7 +132,7 @@
                             reaktion.options.onOpen.call(this);
                         }
                     });
-                }               
+                }
             }
         },
 
@@ -143,7 +143,7 @@
                         menu.slideUp(this.options.speed, function(){
                             if(typeof reaktion.options.onClose === 'function'){
                                 reaktion.options.onClose.call(this);
-                            } 
+                            }
                         }) :
                         menu.fadeOut(this.options.speed, function(){
                             if(typeof reaktion.options.onClose === 'function'){
@@ -163,7 +163,7 @@
         toggle: function(){
             menu.is(':visible') ? this.close() : this.open();
         }
-        
+
     };
 
     $.fn['reaktion'] = function(args) {
@@ -172,12 +172,12 @@
         }
         var instance = $(this).data('reaktion');
 
-        if(instance && instance[args]  && args.indexOf('_') != 0 && typeof instance[args] === 'function') {  
+        if(instance && instance[args]  && args.indexOf('_') != 0 && typeof instance[args] === 'function') {
             return instance[args].apply(instance, Array.prototype.slice.call(arguments, 1));
         } else if(typeof args === 'object' || !args) {
-            instance = new Plugin($(this), args);
+            instance = new Reaktion($(this), args);
             $(this).data('reaktion', instance);
-            return this;            
+            return this;
         } else if(args.indexOf('_') == 0) {
             $.error('The ' + args + ' method is private and cannot be called publicly');
         } else {
