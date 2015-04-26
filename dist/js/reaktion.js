@@ -11,6 +11,7 @@
 ;(function($, document, window, undefined) {
 
     var reaktion, nav, menu, defaults = {
+        mobileOnly: false,
         breakPoint: 768,
         navIcon: '<i class="fa fa-bars"></i>',
         arrows: true,
@@ -42,11 +43,15 @@
             reaktion = this;
             menu = $(this.element).find('ul:first');
 
-            nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');
 
-            $('.nav-bars').click(function() {
-                menu.is(':visible') ? reaktion.close() : reaktion.open();
-            });
+            if (this.options.mobileOnly) {
+                nav.addClass('mobile').addClass('mobile-only');
+            } else {
+                nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');
+                $('.nav-bars').click(function() {
+                    menu.is(':visible') ? reaktion.close() : reaktion.open();
+                });
+            }
 
             if(this.options.arrows) {
                 nav.find('ul > li').not('ul > li > ul li').has('ul')
@@ -65,11 +70,18 @@
                 });
             }
 
-            reaktion._resize();
 
-            $(window).resize(function(){
+            /**
+             * Resize functionality, really only worth it if we actually
+             * care about responsiveness.
+             */
+            if (!this.options.mobileOnly) {
                 reaktion._resize();
-            });
+
+                $(window).resize(function(){
+                    reaktion._resize();
+                });
+            }
 
         },
 
@@ -98,7 +110,7 @@
         },
 
         _toggleSubNav: function(arrow) {
-            if($('.nav-bars').is(':visible')) {
+            if($('.nav-bars').is(':visible') || this.options.mobileOnly) {
                 if(this.options.animateSubNav) {
                     this.options.subNavEffect == 'slide' ?
                         arrow.siblings('ul').slideToggle(this.options.subNavSpeed) :

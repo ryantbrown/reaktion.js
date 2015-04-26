@@ -111,6 +111,14 @@
 		width:100%;
 		padding-top: 50px;
 
+		&.mobile-only {
+			padding-top: 0;
+			> ul {
+				// override styles above as we don't want the hamburger
+				display: block;
+			}
+		}
+
 		ul {
 			display:none;
 
