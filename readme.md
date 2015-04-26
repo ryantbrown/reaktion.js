@@ -72,6 +72,7 @@ There are several ways to customize Reaktion.js for you needs, the two most comm
 
 | Option | Default | Type | Description |
 | -------| --------| -----| ------------|
+| mobileOnly | `false` | true | Whether to force responsive mode off and always show the mobile version (useful when integrating into extant menu systems). |
 | breakPoint | `768` | number | Refers to the viewport width and determines when the navigation switches to the "mobile" version.|
 | navIcon | `<i class="fa fa-bars"></i>` | string | The HTML (text, icon, image, etc.) for the mobile icon (the mobile icon is what the user clicks to reveal the mobile menu. |
 | arrows | `true` | bool | Whether or not to show the sub menu arrows. To include the arrows on the "mobile" version only you can use CSS to hide them (ie: `.nav ul li span.arrow { display:none; }`) |
@@ -91,6 +92,7 @@ Below is an example using these options in the plugin call:
 ```javascript
 $(function(){
 	$('.nav').reaktion({
+		mobileOnly: false
 		breakPoint: 768,
 	    navIcon: '<i class="fa fa-bars"></i>',
 	    arrows: true,
