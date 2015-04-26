@@ -43,14 +43,29 @@
             menu = $(this.element).find('ul:first');
 
             nav.append('<div class="nav-bars">'+this.options.navIcon+'</div>');
-
             $('.nav-bars').click(function() {
                 menu.is(':visible') ? reaktion.close() : reaktion.open();
             });
 
+            var tailselector = ' > li > ul';
+            var idx = 0;
+            var lists_selector = this.element.selector + ' > ul';
+            var lists = $(lists_selector);
+            while(lists.length > 0) {
+
+                lists.addClass('reaktion-ul-' + idx);
+                idx++;
+
+                lists_selector += tailselector;
+                lists = $(lists_selector);
+            }
+
             if(this.options.arrows) {
-                nav.find('ul > li').not('ul > li > ul li').has('ul')
-                      .prepend('<span class="arrow">'+this.options.arrowIcon+'</span>');
+                nav
+                    .find('ul > li')
+                    //.not('ul > li > ul li')
+                    .has('ul')
+                    .prepend('<span class="arrow">'+this.options.arrowIcon+'</span>');
                 menu.on('click', 'span.arrow', function() {
                     reaktion._toggleSubNav($(this));
                 });
@@ -79,13 +94,13 @@
                 nav.find('ul:first').show().find('.arrow').removeClass('arrow-rotate')
                 .parent().find('ul').hide();
 
-                nav.find('ul:first > li').hover(function() {
+                nav.find('ul > li').hover(function() {
                     if(!nav.hasClass('mobile')) {
-                        $(this).find('ul').show();
+                        $(this).children('ul').show();
                     }
                 }, function(){
                     if(!nav.hasClass('mobile')) {
-                        $(this).find('ul').hide();
+                        $(this).children('ul').hide();
                     }
                 });
 
